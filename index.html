@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BATA & MODA STEPS | Tienda Oficial de Calzado</title>
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              red: '#e60023',
+              dark: '#111827',
+              gray: '#f9fafb'
+            },
+            whatsapp: {
+              green: '#25D366',
+              dark: '#128C7E'
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      overflow-x: hidden;
+    }
+    .product-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px -10px rgba(0, 0, 0, 0.1);
+    }
+    .category-bubble {
+      transition: all 0.2s ease;
+    }
+    .category-bubble:hover, .category-bubble.active {
+      transform: scale(1.04);
+    }
+    .category-bubble.active .ring-wrapper {
+      border-color: #e60023;
+    }
+    .size-btn.active {
+      background-color: #111827;
+      color: #ffffff;
+      border-color: #111827;
+    }
+    .badge-discount {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+    /* Estilo del botón flotante de WhatsApp */
+    .whatsapp-float-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1040;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .whatsapp-float-btn:hover {
+      transform: scale(1.08) translateY(-2px);
+    }
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+      height: 7px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- Barra Superior de Ofertas -->
+  <aside class="bg-stone-900 text-stone-200 text-xs py-2 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2">
+    <span class="inline-block w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+    <span>¡Envíos <strong>GRATIS</strong> a todo el Perú en compras mayores a S/ 199! | Asesoría en vivo por WhatsApp</span>
+  </aside>
+
+  <!-- Navbar Principal Sticky -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20 gap-4">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2.5 text-decoration-none group">
+          <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center text-white font-black text-xl shadow-md shadow-red-500/30 group-hover:scale-105 transition-transform">
+            B
+          </div>
+          <div class="leading-tight">
+            <span class="text-xl font-extrabold tracking-tight text-gray-900 block">BATA <span class="text-red-600">MODA</span></span>
+            <span class="text-[10px] text-gray-600 uppercase tracking-widest font-semibold block">Footwear Co.</span>
+          </div>
+        </a>
+
+        <!-- Barra de Búsqueda Dinámica Desktop -->
+        <div class="hidden md:flex flex-1 max-w-lg mx-4">
+          <div class="relative w-full">
+            <input 
+              type="search" 
+              id="searchInput" 
+              placeholder="Buscar zapatos, marcas (Adidas, Calimod, Sybilla...)" 
+              class="w-full bg-gray-100 text-gray-800 text-sm rounded-full pl-11 pr-4 py-2.5 border border-transparent focus:outline-none focus:border-red-500 focus:bg-white transition-all shadow-inner"
+            >
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-3 text-gray-600"></i>
+          </div>
+        </div>
+
+        <!-- Acciones: Categorías rápidas, WhatsApp Asesoría, Carrito -->
+        <div class="flex items-center gap-2 sm:gap-3">
+          
+          <!-- Enlace directo WhatsApp en cabecera -->
+          <a 
+            href="https://wa.me/51967737405?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20calzado%20en%20la%20tienda." 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="hidden sm:inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 border border-emerald-200 px-3 py-1.5 rounded-full text-xs font-bold text-decoration-none transition-colors"
+          >
+            <i class="fa-brands fa-whatsapp text-sm text-emerald-600"></i>
+            <span>967 737 405</span>
+          </a>
+
+          <!-- Filtro rápido desplegable -->
+          <div class="dropdown hidden sm:block">
+            <button class="btn btn-light rounded-full text-sm font-semibold px-3 py-2 border border-gray-200 hover:bg-gray-100 dropdown-toggle" type="button" data-bs-toggle="dropdown">
+              <i class="fa-solid fa-list-ul me-1 text-gray-600"></i> Categorías
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end shadow-lg border-0 rounded-2xl py-2 mt-2">
+              <li><button class="dropdown-item py-2 px-4 hover:bg-red-50 hover:text-red-600 font-medium" onclick="filterByCategory('all')">Todos los estilos</button></li>
+              <li><button class="dropdown-item py-2 px-4 hover:bg-red-50 hover:text-red-600 font-medium" onclick="filterByCategory('Mujer')">Colección Mujer</button></li>
+              <li><button class="dropdown-item py-2 px-4 hover:bg-red-50 hover:text-red-600 font-medium" onclick="filterByCategory('Hombre')">Colección Hombre</button></li>
+              <li><button class="dropdown-item py-2 px-4 hover:bg-red-50 hover:text-red-600 font-medium" onclick="filterByCategory('Infantil')">Calzado Infantil</button></li>
+            </ul>
+          </div>
+
+          <!-- Botón de Carrito (Abre Offcanvas) -->
+          <button 
+            type="button" 
+            class="relative flex items-center justify-center w-11 h-11 rounded-full bg-gray-900 text-white hover:bg-red-600 transition-colors shadow-sm"
+            data-bs-toggle="offcanvas" 
+            data-bs-target="#cartOffcanvas"
+            aria-label="Ver carrito"
+          >
+            <i class="fa-solid fa-bag-shopping text-base"></i>
+            <span id="cartCountBadge" class="absolute -top-1.5 -right-1.5 bg-red-600 text-white text-[11px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white shadow">
+              0
+            </span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Barra de Búsqueda Móvil -->
+      <div class="pb-3 md:hidden">
+        <div class="relative w-full">
+          <input 
+            type="search" 
+            id="searchInputMobile" 
+            placeholder="Buscar por marca o modelo..." 
+            class="w-full bg-gray-100 text-gray-800 text-sm rounded-full pl-10 pr-4 py-2 border border-transparent focus:outline-none focus:border-red-500 focus:bg-white transition-all shadow-inner"
+          >
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-2.5 text-gray-600 text-sm"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-grow">
+    <!-- Categorías Rápidas / Stories Interactivas -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-sm font-bold uppercase tracking-wider text-gray-600">Explorar por Sección</h2>
+        <span class="text-xs text-red-600 font-semibold cursor-pointer" onclick="filterByCategory('all')">Ver Todo</span>
+      </div>
+
+      <div class="flex items-center gap-4 sm:gap-6 overflow-x-auto pb-3 pt-1 no-scrollbar">
+        <button onclick="filterByCategory('all')" class="category-bubble active flex flex-col items-center gap-1.5 min-w-[70px] text-center border-0 bg-transparent p-0" data-cat="all">
+          <div class="ring-wrapper w-16 h-16 rounded-full border-2 border-gray-300 p-0.5 flex items-center justify-center bg-white shadow-sm overflow-hidden">
+            <span class="text-xs font-bold text-gray-700 bg-gray-100 w-full h-full rounded-full flex items-center justify-center"><i class="fa-solid fa-layer-group text-lg text-gray-600"></i></span>
+          </div>
+          <span class="text-xs font-semibold text-gray-700">Todos</span>
+        </button>
+
+        <button onclick="filterByCategory('Mujer')" class="category-bubble flex flex-col items-center gap-1.5 min-w-[70px] text-center border-0 bg-transparent p-0" data-cat="Mujer">
+          <div class="ring-wrapper w-16 h-16 rounded-full border-2 border-transparent p-0.5 shadow-sm overflow-hidden bg-white">
+            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=150&auto=format&fit=crop&q=80" alt="Mujer" class="w-full h-full object-cover rounded-full">
+          </div>
+          <span class="text-xs font-semibold text-gray-700">Mujer</span>
+        </button>
+
+        <button onclick="filterByCategory('Hombre')" class="category-bubble flex flex-col items-center gap-1.5 min-w-[70px] text-center border-0 bg-transparent p-0" data-cat="Hombre">
+          <div class="ring-wrapper w-16 h-16 rounded-full border-2 border-transparent p-0.5 shadow-sm overflow-hidden bg-white">
+            <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=150&auto=format&fit=crop&q=80" alt="Hombre" class="w-full h-full object-cover rounded-full">
+          </div>
+          <span class="text-xs font-semibold text-gray-700">Hombre</span>
+        </button>
+
+        <button onclick="filterByCategory('Infantil')" class="category-bubble flex flex-col items-center gap-1.5 min-w-[70px] text-center border-0 bg-transparent p-0" data-cat="Infantil">
+          <div class="ring-wrapper w-16 h-16 rounded-full border-2 border-transparent p-0.5 shadow-sm overflow-hidden bg-white">
+            <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?w=150&auto=format&fit=crop&q=80" alt="Infantil" class="w-full h-full object-cover rounded-full">
+          </div>
+          <span class="text-xs font-semibold text-gray-700">Infantil</span>
+        </button>
+
+        <button onclick="filterByCategory('Deportivo')" class="category-bubble flex flex-col items-center gap-1.5 min-w-[70px] text-center border-0 bg-transparent p-0" data-cat="Deportivo">
+          <div class="ring-wrapper w-16 h-16 rounded-full border-2 border-transparent p-0.5 shadow-sm overflow-hidden bg-white">
+            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=150&auto=format&fit=crop&q=80" alt="Deportivo" class="w-full h-full object-cover rounded-full">
+          </div>
+          <span class="text-xs font-semibold text-gray-700">Urbano</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Carrusel / Hero Banner Principal -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-4">
+      <div id="heroCarousel" class="carousel slide carousel-fade rounded-3xl overflow-hidden shadow-xl" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+          <!-- Slide 1 -->
+          <div class="carousel-item active relative min-h-[380px] sm:min-h-[460px] bg-slate-900" data-bs-interval="5000">
+            <img src="https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=1600&q=80" class="absolute inset-0 w-full h-full object-cover object-center opacity-45" alt="Nueva Colección">
+            <div class="relative max-w-2xl h-full flex flex-col justify-center px-6 sm:px-14 py-16 text-white z-10">
+              <span class="inline-block bg-red-600 text-white text-xs uppercase font-extrabold px-3 py-1 rounded-full mb-3 tracking-widest w-fit">
+                Temporada 2026
+              </span>
+              <h1 class="text-3xl sm:text-5xl font-black leading-tight tracking-tight mb-4">
+                Encuentra tu Estilo Ideal a Cada Paso
+              </h1>
+              <p class="text-sm sm:text-base text-gray-200 mb-6 max-w-lg leading-relaxed">
+                Descubre zapatos, zapatillas de diseño urbano y botines de cuero pensados para una comodidad insuperable.
+              </p>
+              <div class="flex flex-wrap gap-3">
+                <a href="#catalogo" class="btn btn-light rounded-pill px-5 py-2.5 font-bold shadow-lg hover:scale-105 transition-transform">
+                  Comprar Ahora <i class="fa-solid fa-arrow-right ms-2 text-red-600"></i>
+                </a>
+                <a href="https://wa.me/51967737405?text=Hola%2C%20quisiera%20asesoramiento%20para%20elegir%20mi%20talla%20de%20calzado" target="_blank" class="btn btn-outline-light rounded-pill px-5 py-2.5 font-semibold flex items-center gap-2">
+                  <i class="fa-brands fa-whatsapp text-emerald-400"></i> Consultar Asesor
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item relative min-h-[380px] sm:min-h-[460px] bg-zinc-950" data-bs-interval="5000">
+            <img src="https://images.unsplash.com/photo-1512374382149-233c42b6683b?auto=format&fit=crop&w=1600&q=80" class="absolute inset-0 w-full h-full object-cover object-center opacity-40" alt="Adidas Terrex & Trekking">
+            <div class="relative max-w-2xl h-full flex flex-col justify-center px-6 sm:px-14 py-16 text-white z-10">
+              <span class="inline-block bg-amber-500 text-black text-xs uppercase font-extrabold px-3 py-1 rounded-full mb-3 tracking-widest w-fit">
+                Outdoor & Aventura
+              </span>
+              <h2 class="text-3xl sm:text-5xl font-black leading-tight tracking-tight mb-4">
+                Potencia y Rendimiento en Terreno
+              </h2>
+              <p class="text-sm sm:text-base text-gray-200 mb-6 max-w-lg">
+                Botas de alta resistencia Adidas Terrex y calzado deportivo diseñado para el asfalto y la montaña.
+              </p>
+              <div>
+                <button onclick="filterByCategory('Hombre')" class="btn btn-warning rounded-pill px-5 py-2.5 font-bold text-dark shadow-lg">
+                  Explorar Hombre
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item relative min-h-[380px] sm:min-h-[460px] bg-stone-900" data-bs-interval="5000">
+            <img src="https://images.unsplash.com/photo-1518049362265-d5b2a6467637?auto=format&fit=crop&w=1600&q=80" class="absolute inset-0 w-full h-full object-cover object-center opacity-40" alt="Tacones y Elegancia">
+            <div class="relative max-w-2xl h-full flex flex-col justify-center px-6 sm:px-14 py-16 text-white z-10">
+              <span class="inline-block bg-rose-500 text-white text-xs uppercase font-extrabold px-3 py-1 rounded-full mb-3 tracking-widest w-fit">
+                Lujo & Distinción
+              </span>
+              <h2 class="text-3xl sm:text-5xl font-black leading-tight tracking-tight mb-4">
+                Tacones y Zapatos de Vestir
+              </h2>
+              <p class="text-sm sm:text-base text-gray-200 mb-6 max-w-lg">
+                Modelos exclusivos Eva Minge y Calimod con los mejores acabados en cuero genuino.
+              </p>
+              <div>
+                <a href="#catalogo" class="btn btn-light rounded-pill px-5 py-2.5 font-bold text-dark shadow-lg">
+                  Ver Colección Fiesta
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon rounded-full bg-black/40 p-3" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon rounded-full bg-black/40 p-3" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Sección Catálogo de Productos -->
+    <section id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-6 border-b border-gray-200 gap-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <i class="fa-solid fa-fire-flame-curved text-red-500 text-xl animate-bounce"></i>
+            <h2 class="text-2xl font-black text-gray-900 tracking-tight">Lo Más Destacado</h2>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-600">Calzado exclusivo con garantía oficial y tallas verificadas</p>
+        </div>
+
+        <!-- Filtros Rápidos de Orden -->
+        <div class="flex items-center gap-2 w-full sm:w-auto">
+          <span class="text-xs font-semibold text-gray-600 whitespace-nowrap">Ordenar por:</span>
+          <select id="sortBy" onchange="sortProducts()" class="form-select form-select-sm rounded-xl border-gray-200 text-xs font-medium py-2">
+            <option value="featured">Destacados</option>
+            <option value="price-asc">Precio: Menor a Mayor</option>
+            <option value="price-desc">Precio: Mayor a Menor</option>
+            <option value="name">Nombre Marca</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Grid de Productos -->
+      <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 pt-8">
+        <!-- Renderizado dinámico vía JavaScript -->
+      </div>
+
+      <!-- Estado vacío para búsquedas sin resultados -->
+      <div id="emptyState" class="hidden text-center py-16">
+        <i class="fa-regular fa-face-frown text-5xl text-gray-300 mb-3 block"></i>
+        <h3 class="text-lg font-bold text-gray-700">No encontramos productos coincidentes</h3>
+        <p class="text-sm text-gray-600 mb-4">Intenta buscar otra marca o restablecer los filtros de categoría.</p>
+        <button onclick="resetFilters()" class="btn btn-dark rounded-pill px-4 py-2 text-sm font-semibold">
+          Restablecer Filtros
+        </button>
+      </div>
+    </section>
+
+    <!-- Banner Promocional de Campaña -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="relative bg-gradient-to-r from-neutral-900 via-neutral-800 to-red-950 rounded-3xl overflow-hidden p-8 sm:p-14 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <div class="max-w-xl">
+          <span class="bg-red-500/20 text-red-400 border border-red-500/30 text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            Colección Urbana & Cuero
+          </span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold mt-3 mb-3 leading-snug">
+            Actualiza tus pasos con hasta <span class="text-red-500">30% OFF</span>
+          </h2>
+          <p class="text-sm text-gray-300 leading-relaxed">
+            Aprovecha nuestros precios de temporada en marcas líderes. Calidad prémium con suelas ergonómicas y atención personalizada vía WhatsApp al 967 737 405.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#catalogo" class="btn btn-danger bg-red-600 hover:bg-red-700 rounded-pill px-6 py-2.5 font-bold shadow-md">
+              Comprar en Oferta
+            </a>
+            <a href="https://wa.me/51967737405?text=Hola%2C%20deseo%20saber%20sobre%20las%20ofertas%20especiales" target="_blank" class="btn btn-outline-light rounded-pill px-5 py-2.5 font-semibold flex items-center gap-2">
+              <i class="fa-brands fa-whatsapp text-emerald-400"></i> Chatear con Ventas
+            </a>
+          </div>
+        </div>
+        <div class="w-full md:w-1/3 flex justify-center">
+          <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&w=600&q=80" alt="Zapato destacado" class="rounded-2xl shadow-2xl max-h-56 object-cover transform rotate-3 hover:rotate-0 transition-transform duration-300">
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de Beneficios / Trust Badges -->
+    <section class="bg-white border-y border-gray-100 py-12 my-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
+          
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-truck-fast"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-sm text-gray-900 mb-0.5">Envíos a todo el Perú</h3>
+              <p class="text-xs text-gray-600 leading-relaxed">Rastreo en línea y entrega en 24 a 48 hrs en Lima.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-sm text-gray-900 mb-0.5">Compra 100% Segura</h3>
+              <p class="text-xs text-gray-600 leading-relaxed">Garantía oficial y política de cambios sin trabas.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-credit-card"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-sm text-gray-900 mb-0.5">Múltiples Pagos</h3>
+              <p class="text-xs text-gray-600 leading-relaxed">Tarjetas, transferencias y pagos con Yape y Plin.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center text-xl shrink-0">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <div>
+              <h3 class="font-bold text-sm text-gray-900 mb-0.5">Atención WhatsApp</h3>
+              <p class="text-xs text-gray-600 leading-relaxed">Soporte directo al 967 737 405 de 8am a 8pm.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Suscripción a Ofertas -->
+    <section class="max-w-4xl mx-auto px-4 my-10 text-center">
+      <div class="bg-gray-100 rounded-3xl p-8 sm:p-10 border border-gray-200">
+        <span class="text-xs font-bold text-red-600 uppercase tracking-widest">Newsletter VIP</span>
+        <h3 class="text-2xl font-black text-gray-900 mt-1 mb-2">Recibe S/ 20 de descuento en tu primera compra</h3>
+        <p class="text-xs sm:text-sm text-gray-600 max-w-md mx-auto mb-5">
+          Suscríbete para lanzamientos exclusivos, liquidaciones de temporada y atención preferencial.
+        </p>
+        <form class="flex flex-col sm:flex-row gap-2 justify-center max-w-md mx-auto" onsubmit="event.preventDefault(); showToast('¡Gracias por suscribirte! Revisa tu correo con el cupón.');">
+          <input type="email" required placeholder="Ingresa tu correo electrónico" class="form-control rounded-full px-4 py-2.5 text-sm border-gray-300 focus:border-red-600 focus:shadow-none">
+          <button type="submit" class="btn btn-dark rounded-full px-6 py-2.5 text-sm font-bold tracking-wide hover:bg-red-600 transition-colors">
+            Suscribirme
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Oficial -->
+  <footer class="bg-neutral-950 text-neutral-400 text-xs pt-12 pb-8 border-t border-neutral-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 pb-10 border-b border-neutral-800">
+        
+        <!-- Info Marca -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-8 h-8 rounded-lg bg-red-600 text-white font-black flex items-center justify-center text-base">B</span>
+            <span class="text-lg font-bold text-white tracking-tight">BATA & MODA</span>
+          </div>
+          <p class="text-neutral-400 leading-relaxed text-xs max-w-sm mb-4">
+            Especialistas en calzado formal, casual y deportivo para toda la familia. WhatsApp de pedidos rápidos: <strong class="text-white">+51 967 737 405</strong>.
+          </p>
+          <div class="flex gap-3 text-neutral-300 text-base">
+            <a href="#" class="w-8 h-8 rounded-full bg-neutral-900 flex items-center justify-center hover:text-white hover:bg-red-600 transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-neutral-900 flex items-center justify-center hover:text-white hover:bg-red-600 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="w-8 h-8 rounded-full bg-neutral-900 flex items-center justify-center hover:text-white hover:bg-red-600 transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://wa.me/51967737405?text=Hola%2C%20contacto%20desde%20la%20web" target="_blank" class="w-8 h-8 rounded-full bg-neutral-900 flex items-center justify-center hover:text-white hover:bg-emerald-600 transition-colors" title="WhatsApp 967737405"><i class="fa-brands fa-whatsapp"></i></a>
+          </div>
+        </div>
+
+        <!-- Enlaces: Categorías -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Categorías</h4>
+          <ul class="space-y-2 list-unstyled">
+            <li><a href="#catalogo" onclick="filterByCategory('Mujer')" class="hover:text-white text-decoration-none transition-colors">Zapatos Mujer</a></li>
+            <li><a href="#catalogo" onclick="filterByCategory('Hombre')" class="hover:text-white text-decoration-none transition-colors">Calzado Hombre</a></li>
+            <li><a href="#catalogo" onclick="filterByCategory('Infantil')" class="hover:text-white text-decoration-none transition-colors">Línea Infantil</a></li>
+            <li><a href="#catalogo" onclick="filterByCategory('Deportivo')" class="hover:text-white text-decoration-none transition-colors">Zapatillas Urbanas</a></li>
+          </ul>
+        </div>
+
+        <!-- Enlaces: Servicio al Cliente -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Ayuda & Guía</h4>
+          <ul class="space-y-2 list-unstyled">
+            <li><a href="https://wa.me/51967737405?text=Hola%2C%20necesito%20la%20guia%20de%20tallas" target="_blank" class="hover:text-white text-decoration-none transition-colors">Guía de Tallas WhatsApp</a></li>
+            <li><a href="https://wa.me/51967737405?text=Hola%2C%20quisiera%20rastrear%20mi%20pedido" target="_blank" class="hover:text-white text-decoration-none transition-colors">Seguimiento de Pedido</a></li>
+            <li><a href="#" class="hover:text-white text-decoration-none transition-colors">Cambios y Devoluciones</a></li>
+            <li><a href="#" class="hover:text-white text-decoration-none transition-colors">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+
+        <!-- Enlaces: Legal y Pagos -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">Confianza & Pagos</h4>
+          <p class="text-neutral-400 mb-2">Aceptamos todos los medios:</p>
+          <div class="flex flex-wrap gap-2 text-xl text-neutral-300 mb-4">
+            <i class="fa-brands fa-cc-visa"></i>
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <i class="fa-solid fa-money-bill-wave" title="Efectivo contraentrega"></i>
+            <span class="bg-neutral-800 text-[10px] px-2 py-0.5 rounded font-mono font-bold text-purple-400">YAPE</span>
+            <span class="bg-neutral-800 text-[10px] px-2 py-0.5 rounded font-mono font-bold text-cyan-400">PLIN</span>
+          </div>
+          <a href="#" class="inline-flex items-center gap-1.5 text-neutral-300 hover:text-white bg-neutral-900 px-3 py-1.5 rounded-lg border border-neutral-800 text-[11px] text-decoration-none">
+            <i class="fa-solid fa-book-open"></i> Libro de Reclamaciones
+          </a>
+        </div>
+
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-neutral-400 text-[11px] gap-3">
+        <p>© 2026 BATA MODA STEPS S.A.C. Todos los derechos reservados. WhatsApp Oficial: 967 737 405</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-white text-decoration-none">Políticas de Privacidad</a>
+          <a href="#" class="hover:text-white text-decoration-none">Seguridad Web</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Offcanvas Carrito de Compras Lateral con WhatsApp Checkout -->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+    <div class="offcanvas-header border-b border-gray-100 py-3">
+      <div class="flex items-center gap-2">
+        <i class="fa-solid fa-bag-shopping text-red-600"></i>
+        <h5 class="offcanvas-title font-bold text-base text-gray-900" id="cartOffcanvasLabel">Bolsa de Compras</h5>
+      </div>
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    
+    <div class="offcanvas-body flex flex-col justify-between p-4">
+      
+      <!-- Lista de Artículos -->
+      <div id="cartItemsContainer" class="divide-y divide-gray-100 overflow-y-auto flex-grow max-h-[55vh] pr-1">
+        <!-- Renderizado dinámico -->
+      </div>
+
+      <!-- Resumen y Checkout -->
+      <div id="cartFooter" class="border-t border-gray-200 pt-3 mt-3">
+        <div class="space-y-1.5 text-sm mb-3">
+          <div class="flex justify-between text-gray-600 text-xs">
+            <span>Subtotal estimado</span>
+            <span id="cartSubtotal">S/ 0.00</span>
+          </div>
+          <div class="flex justify-between text-gray-600 text-xs">
+            <span>Envío a domicilio</span>
+            <span class="text-emerald-600 font-medium">Gratis (Promoción)</span>
+          </div>
+          <div class="flex justify-between text-base font-extrabold text-gray-900 pt-2 border-t border-gray-100">
+            <span>Total a pagar</span>
+            <span id="cartTotal" class="text-red-600 text-lg">S/ 0.00</span>
+          </div>
+        </div>
+
+        <!-- Botón destacado: Pedido Directo a WhatsApp 967737405 -->
+        <button 
+          id="btnWhatsAppOrder" 
+          onclick="orderViaWhatsApp()" 
+          class="w-full btn btn-success bg-emerald-600 hover:bg-emerald-700 py-3 rounded-full font-bold shadow-lg transition-all flex items-center justify-center gap-2 text-white mb-2"
+        >
+          <i class="fa-brands fa-whatsapp text-lg"></i> Pedir por WhatsApp
+        </button>
+
+        <button 
+          id="btnCheckout" 
+          onclick="openCheckoutModal()" 
+          class="w-full btn btn-dark bg-gray-900 hover:bg-black py-2.5 rounded-full text-xs font-bold transition-all text-white"
+        >
+          Pagar con Tarjeta / Yape / Formulario
+        </button>
+
+        <button type="button" class="w-full btn btn-light rounded-full py-2 mt-1.5 text-xs font-semibold" data-bs-dismiss="offcanvas">
+          Seguir comprando
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal Quick View (Vista Rápida del Calzado) con Botón WhatsApp -->
+  <div class="modal fade" id="quickViewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-3xl overflow-hidden border-0 shadow-2xl">
+        <div class="modal-header border-0 pb-0 absolute right-4 top-4 z-10">
+          <button type="button" class="btn-close bg-white p-2 rounded-full shadow" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="grid grid-cols-1 md:grid-cols-2">
+            <!-- Imagen Modal -->
+            <div class="bg-gray-100 flex items-center justify-center p-6 min-h-[300px]">
+              <img id="qvImage" src="" alt="" class="max-h-72 object-contain rounded-xl hover:scale-105 transition-transform duration-300">
+            </div>
+            <!-- Info Modal -->
+            <div class="p-6 md:p-8 flex flex-col justify-between">
+              <div>
+                <span id="qvCategory" class="text-xs uppercase font-extrabold tracking-wider text-red-600 bg-red-50 px-2.5 py-1 rounded-full">Categoría</span>
+                <h3 id="qvBrand" class="text-xl font-black text-gray-900 mt-2 mb-1">Marca</h3>
+                <p id="qvModel" class="text-xs text-gray-600 mb-3">Descripción breve del calzado</p>
+                
+                <div class="flex items-baseline gap-2 mb-4">
+                  <span id="qvPrice" class="text-2xl font-black text-red-600">S/ 0.00</span>
+                  <span id="qvOldPrice" class="text-sm text-gray-400 line-through">S/ 0.00</span>
+                </div>
+
+                <!-- Selector de Tallas Modal -->
+                <div class="mb-4">
+                  <label class="block text-xs font-bold text-gray-700 uppercase mb-2">Selecciona tu Talla (Perú/EU):</label>
+                  <div id="qvSizes" class="flex flex-wrap gap-2"></div>
+                </div>
+
+                <ul class="text-xs text-gray-600 space-y-1 mb-4 list-unstyled">
+                  <li><i class="fa-solid fa-check text-emerald-500 me-2"></i>Plantilla acolchada anti-impacto</li>
+                  <li><i class="fa-solid fa-check text-emerald-500 me-2"></i>Suela de alta tracción y durabilidad</li>
+                  <li><i class="fa-solid fa-check text-emerald-500 me-2"></i>100% original con caja de fábrica</li>
+                </ul>
+              </div>
+
+              <div class="space-y-2">
+                <button id="qvAddToCartBtn" class="btn btn-danger bg-red-600 hover:bg-red-700 w-full py-3 rounded-full font-bold shadow-md">
+                  Añadir al Carrito <i class="fa-solid fa-bag-shopping ms-2"></i>
+                </button>
+                <!-- Botón de consulta individual por WhatsApp -->
+                <button id="qvWhatsAppBtn" class="btn btn-outline-success border-emerald-600 text-emerald-700 hover:bg-emerald-600 hover:text-white w-full py-2.5 rounded-full font-bold flex items-center justify-center gap-2 text-xs transition-colors">
+                  <i class="fa-brands fa-whatsapp text-sm"></i> Consultar Disponibilidad por WhatsApp
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Checkout Simulado -->
+  <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-3xl border-0 shadow-2xl p-6">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <h4 class="text-xl font-black text-gray-900 mb-1">¡Casi es tuyo!</h4>
+          <p class="text-xs text-gray-600 mb-4">Completa tus datos de envío para finalizar la orden.</p>
+          
+          <form onsubmit="finishPurchase(event)" class="text-start space-y-3">
+            <div>
+              <label class="text-xs font-bold text-gray-700">Nombre Completo</label>
+              <input type="text" id="chkName" required placeholder="Ej. Juan Pérez" class="form-control rounded-xl text-sm py-2">
+            </div>
+            <div>
+              <label class="text-xs font-bold text-gray-700">Teléfono / WhatsApp</label>
+              <input type="tel" id="chkPhone" required placeholder="Ej. 987 654 321" class="form-control rounded-xl text-sm py-2">
+            </div>
+            <div>
+              <label class="text-xs font-bold text-gray-700">Dirección de Entrega</label>
+              <input type="text" id="chkAddress" required placeholder="Av. Principal 123, Distrito" class="form-control rounded-xl text-sm py-2">
+            </div>
+            <div>
+              <label class="text-xs font-bold text-gray-700">Método de Pago Preferido</label>
+              <select id="chkPayment" class="form-select rounded-xl text-sm py-2">
+                <option value="Yape / Plin">Yape / Plin al recibir</option>
+                <option value="Tarjeta">Tarjeta de Crédito / Débito (Visa, Mastercard)</option>
+                <option value="Efectivo">Pago contraentrega en efectivo</option>
+              </select>
+            </div>
+            <div class="pt-2">
+              <button type="submit" class="w-full btn btn-danger bg-red-600 hover:bg-red-700 py-3 rounded-full font-bold shadow">
+                Confirmar y Notificar Pedido (<span id="modalCheckoutAmount">S/ 0.00</span>)
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTÓN FLOTANTE FIJO DE WHATSAPP (967737405) -->
+  <div class="whatsapp-float-btn flex items-center gap-2 group">
+    <!-- Tooltip descriptivo en hover -->
+    <span class="hidden sm:inline-block bg-white text-gray-800 text-xs font-bold px-3 py-1.5 rounded-full shadow-lg border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+      ¿Dudas? Chatea con nosotros
+    </span>
+    
+    <a 
+      href="https://wa.me/51967737405?text=Hola%2C%20estoy%20en%20la%20tienda%20Bata%20y%20Moda%20y%20deseo%20hacer%20una%20consulta." 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-3xl shadow-xl transition-all relative"
+      title="Contactar al 967 737 405 por WhatsApp"
+      aria-label="Abrir WhatsApp con el número 967737405"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+      <!-- Pulso animado de notificación -->
+      <span class="absolute -top-1 -right-1 flex h-4 w-4">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-4 w-4 bg-red-500 text-[9px] text-white font-bold items-center justify-center">1</span>
+      </span>
+    </a>
+  </div>
+
+  <!-- Toast de Notificaciones -->
+  <div class="position-fixed bottom-0 end-0 p-3 z-50">
+    <div id="appToast" class="toast align-items-center text-white bg-dark border-0 rounded-2xl shadow-xl" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body flex items-center gap-2 text-xs font-medium py-3">
+          <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+          <span id="toastMessage">Producto agregado con éxito.</span>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts: Bootstrap Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Constante del número telefónico de WhatsApp para atención y checkout
+    const WHATSAPP_PHONE = "51967737405";
+
+    /* Base de Datos de Productos */
+    const PRODUCTS = [
+      {
+        id: 1,
+        brand: "Eva Minge",
+        model: "Tacón de aguja Negro • 10.5 cm",
+        category: "Mujer",
+        price: 94.99,
+        oldPrice: 129.99,
+        badge: "Top Ventas",
+        sizes: [35, 36, 37, 38],
+        image: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 2,
+        brand: "Adidas",
+        model: "Botas de trekking • Terrex Eastrail 3",
+        category: "Hombre",
+        price: 100.00,
+        oldPrice: 145.00,
+        badge: "Oferta",
+        sizes: [39, 40, 41, 42, 43],
+        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 3,
+        brand: "Eva Minge",
+        model: "Tacón de aguja Guinda Premium",
+        category: "Mujer",
+        price: 94.00,
+        oldPrice: 119.00,
+        badge: "Elegancia",
+        sizes: [36, 37, 38, 39],
+        image: "https://images.unsplash.com/photo-1581101767113-1677fc2beaa8?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 4,
+        brand: "Beverly Hills Polo Club",
+        model: "Zapatilla Urbana con Plataforma",
+        category: "Deportivo",
+        price: 95.00,
+        oldPrice: 130.00,
+        badge: "Nuevo",
+        sizes: [36, 37, 38, 39],
+        image: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 5,
+        brand: "Gamuza Negra",
+        model: "Zapatilla urbana plataforma de gamuza",
+        category: "Mujer",
+        price: 105.00,
+        oldPrice: 139.00,
+        badge: "-25%",
+        sizes: [35, 36, 37, 38],
+        image: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 6,
+        brand: "Gino Rossi",
+        model: "Botines EO-TINA-1746 Cuero Marrón",
+        category: "Hombre",
+        price: 119.00,
+        oldPrice: 169.00,
+        badge: "Cuero Genuino",
+        sizes: [39, 40, 41, 42],
+        image: "https://images.unsplash.com/photo-1608256246200-53e635b5b65f?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 7,
+        brand: "Sybilla",
+        model: "Zapatillas Urbanas Juveniles",
+        category: "Mujer",
+        price: 90.93,
+        oldPrice: 115.00,
+        badge: "Moda",
+        sizes: [35, 36, 37, 38],
+        image: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 8,
+        brand: "University Club",
+        model: "Zapatillas Casuales Blancas",
+        category: "Mujer",
+        price: 76.90,
+        oldPrice: 99.00,
+        badge: "Ahorro",
+        sizes: [36, 37, 38],
+        image: "https://images.unsplash.com/photo-1562183241-b937e95585b6?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 9,
+        brand: "Adidas",
+        model: "VL Court 3.0 Classic Lifestyle",
+        category: "Deportivo",
+        price: 207.00,
+        oldPrice: 249.00,
+        badge: "Original",
+        sizes: [38, 39, 40, 41, 42],
+        image: "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 10,
+        brand: "Calimod",
+        model: "Zapatos de Vestir 100% Cuero Formal",
+        category: "Hombre",
+        price: 359.00,
+        oldPrice: 429.00,
+        badge: "Premium",
+        sizes: [39, 40, 41, 42, 43],
+        image: "https://images.unsplash.com/photo-1614252235316-8c857d38b5f4?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 11,
+        brand: "Bata Kids",
+        model: "Zapatillas Escolares y Juegos",
+        category: "Infantil",
+        price: 69.90,
+        oldPrice: 89.90,
+        badge: "Resistente",
+        sizes: [28, 30, 32, 34],
+        image: "https://images.unsplash.com/photo-1514989940723-e8e51635b782?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 12,
+        brand: "Bubblegummers",
+        model: "Calzado infantil con luces y velcro",
+        category: "Infantil",
+        price: 79.90,
+        oldPrice: 99.90,
+        badge: "Diversión",
+        sizes: [25, 26, 27, 28],
+        image: "https://images.unsplash.com/photo-1507464098880-e367bc5d2c08?auto=format&fit=crop&w=600&q=80"
+      }
+    ];
+
+    // Variables de estado
+    let currentCategory = 'all';
+    let searchQuery = '';
+    let selectedSizes = {};
+    let cart = [];
+    let currentQuickViewProduct = null;
+
+    /* Renderizado de productos */
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      const empty = document.getElementById('emptyState');
+      grid.innerHTML = '';
+
+      let filtered = PRODUCTS.filter(p => {
+        const matchesCategory = (currentCategory === 'all') || (p.category.toLowerCase() === currentCategory.toLowerCase());
+        const query = searchQuery.toLowerCase().trim();
+        const matchesSearch = !query || p.brand.toLowerCase().includes(query) || p.model.toLowerCase().includes(query) || p.category.toLowerCase().includes(query);
+        return matchesCategory && matchesSearch;
+      });
+
+      const sortVal = document.getElementById('sortBy').value;
+      if (sortVal === 'price-asc') filtered.sort((a, b) => a.price - b.price);
+      if (sortVal === 'price-desc') filtered.sort((a, b) => b.price - a.price);
+      if (sortVal === 'name') filtered.sort((a, b) => a.brand.localeCompare(b.brand));
+
+      if (filtered.length === 0) {
+        empty.classList.remove('hidden');
+        return;
+      } else {
+        empty.classList.add('hidden');
+      }
+
+      filtered.forEach(p => {
+        if (!selectedSizes[p.id]) {
+          selectedSizes[p.id] = p.sizes[0];
+        }
+
+        const card = document.createElement('div');
+        card.className = "product-card bg-white rounded-3xl p-3 border border-gray-100 flex flex-col justify-between relative shadow-sm";
+        
+        card.innerHTML = `
+          <div>
+            <div class="relative bg-gray-50 rounded-2xl overflow-hidden mb-3 aspect-square flex items-center justify-center p-3">
+              <span class="absolute top-3 left-3 text-[10px] uppercase font-black px-2 py-0.5 rounded-full text-white ${p.badge.includes('%') || p.badge === 'Oferta' ? 'badge-discount' : 'bg-gray-900'} shadow-sm">
+                ${p.badge}
+              </span>
+              <button onclick="toggleWishlist(this)" class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/80 hover:bg-white text-gray-400 hover:text-red-500 flex items-center justify-center transition-all shadow-sm">
+                <i class="fa-regular fa-heart text-sm"></i>
+              </button>
+              
+              <img 
+                src="${p.image}" 
+                alt="${p.brand} ${p.model}" 
+                class="w-full h-full object-contain mix-blend-multiply hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+                onerror="this.src='https://placehold.co/400x400/f3f4f6/111827?text=Calzado'"
+              >
+            </div>
+
+            <div class="px-1">
+              <div class="flex items-center justify-between text-[11px] text-gray-600 mb-0.5">
+                <span class="uppercase tracking-wider font-bold text-gray-600">${p.category}</span>
+                <span class="text-amber-500 font-semibold"><i class="fa-solid fa-star text-[10px]"></i> 4.8</span>
+              </div>
+              
+              <h3 class="font-extrabold text-sm text-gray-900 truncate" title="${p.brand}">${p.brand}</h3>
+              <p class="text-xs text-gray-600 line-clamp-1 mb-2.5" title="${p.model}">${p.model}</p>
+
+              <!-- Selector de Tallas -->
+              <div class="mb-3">
+                <div class="flex items-center justify-between text-[11px] font-semibold text-gray-600 mb-1">
+                  <span>Talla:</span>
+                  <span id="selected-size-label-${p.id}" class="text-gray-900 font-bold">${selectedSizes[p.id]}</span>
+                </div>
+                <div class="flex flex-wrap gap-1">
+                  ${p.sizes.map(size => `
+                    <button 
+                      type="button" 
+                      class="size-btn text-[10px] font-bold px-2 py-0.5 rounded-md border border-gray-200 transition-colors ${selectedSizes[p.id] === size ? 'active' : 'bg-white text-gray-700 hover:border-gray-400'}"
+                      onclick="selectSize(${p.id}, ${size})"
+                      id="size-btn-${p.id}-${size}"
+                    >
+                      ${size}
+                    </button>
+                  `).join('')}
+                </div>
+              </div>
+
+              <!-- Precios -->
+              <div class="flex items-baseline gap-2 mb-3">
+                <span class="text-lg font-black text-red-600 tracking-tight">S/ ${p.price.toFixed(2)}</span>
+                <span class="text-xs text-gray-600 line-through">S/ ${p.oldPrice.toFixed(2)}</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-5 gap-1.5 pt-1">
+            <button 
+              onclick="addToCart(${p.id})" 
+              class="col-span-4 btn btn-dark bg-gray-900 hover:bg-red-600 rounded-xl py-2 text-xs font-bold transition-colors flex items-center justify-center gap-1.5 shadow"
+            >
+              <i class="fa-solid fa-bag-shopping text-xs"></i> Agregar
+            </button>
+            <button 
+              onclick="openQuickView(${p.id})" 
+              title="Vista rápida" 
+              class="col-span-1 btn btn-light rounded-xl py-2 text-xs text-gray-700 hover:bg-gray-200 flex items-center justify-center border border-gray-200"
+            >
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    /* Selección de tallas */
+    function selectSize(productId, size) {
+      selectedSizes[productId] = size;
+      const label = document.getElementById(`selected-size-label-${productId}`);
+      if (label) label.textContent = size;
+
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (product) {
+        product.sizes.forEach(s => {
+          const btn = document.getElementById(`size-btn-${productId}-${s}`);
+          if (btn) {
+            if (s === size) {
+              btn.className = "size-btn text-[10px] font-bold px-2 py-0.5 rounded-md border border-gray-900 active";
+            } else {
+              btn.className = "size-btn text-[10px] font-bold px-2 py-0.5 rounded-md border border-gray-200 bg-white text-gray-700 hover:border-gray-400";
+            }
+          }
+        });
+      }
+    }
+
+    /* Modal Quick View */
+    function openQuickView(productId) {
+      const p = PRODUCTS.find(item => item.id === productId);
+      if (!p) return;
+      currentQuickViewProduct = p;
+
+      document.getElementById('qvBrand').textContent = p.brand;
+      document.getElementById('qvModel').textContent = p.model;
+      document.getElementById('qvCategory').textContent = p.category;
+      document.getElementById('qvPrice').textContent = `S/ ${p.price.toFixed(2)}`;
+      document.getElementById('qvOldPrice').textContent = `S/ ${p.oldPrice.toFixed(2)}`;
+      document.getElementById('qvImage').src = p.image;
+
+      const qvSizesContainer = document.getElementById('qvSizes');
+      qvSizesContainer.innerHTML = p.sizes.map(size => `
+        <button 
+          type="button" 
+          class="btn btn-sm ${selectedSizes[p.id] === size ? 'btn-dark' : 'btn-outline-secondary'} rounded-lg text-xs font-bold px-3 py-1.5"
+          onclick="selectSize(${p.id}, ${size}); openQuickView(${p.id});"
+        >
+          ${size}
+        </button>
+      `).join('');
+
+      const addBtn = document.getElementById('qvAddToCartBtn');
+      addBtn.onclick = function() {
+        addToCart(p.id);
+        const modal = bootstrap.Modal.getInstance(document.getElementById('quickViewModal'));
+        if (modal) modal.hide();
+      };
+
+      // Configuración del botón de WhatsApp en el modal para consultar el producto específico
+      const waBtn = document.getElementById('qvWhatsAppBtn');
+      waBtn.onclick = function() {
+        const curSize = selectedSizes[p.id] || p.sizes[0];
+        const msg = `Hola! Estoy interesado en el siguiente calzado visto en su tienda:%0A%0A*Marca:* ${encodeURIComponent(p.brand)}%0A*Modelo:* ${encodeURIComponent(p.model)}%0A*Talla deseada:* ${curSize}%0A*Precio:* S/ ${p.price.toFixed(2)}%0A%0A¿Tienen disponibilidad en stock?`;
+        window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${msg}`, '_blank');
+      };
+
+      const quickViewModal = new bootstrap.Modal(document.getElementById('quickViewModal'));
+      quickViewModal.show();
+    }
+
+    /* Carrito de Compras */
+    function addToCart(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      if (!product) return;
+
+      const size = selectedSizes[productId] || product.sizes[0];
+      const cartKey = `${product.id}-${size}`;
+
+      const existingIndex = cart.findIndex(item => item.key === cartKey);
+      if (existingIndex > -1) {
+        cart[existingIndex].quantity += 1;
+      } else {
+        cart.push({
+          key: cartKey,
+          id: product.id,
+          brand: product.brand,
+          model: product.model,
+          price: product.price,
+          size: size,
+          image: product.image,
+          quantity: 1
+        });
+      }
+
+      updateCartUI();
+      showToast(`¡${product.brand} (Talla ${size}) agregado a tu bolsa!`);
+    }
+
+    function updateCartUI() {
+      const container = document.getElementById('cartItemsContainer');
+      const badge = document.getElementById('cartCountBadge');
+      const subtotalEl = document.getElementById('cartSubtotal');
+      const totalEl = document.getElementById('cartTotal');
+
+      const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+      badge.textContent = totalCount;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12">
+            <i class="fa-solid fa-bag-shopping text-4xl text-gray-200 mb-2"></i>
+            <p class="text-sm font-bold text-gray-700">Tu bolsa está vacía</p>
+            <p class="text-xs text-gray-600">Explora el catálogo y añade tus favoritos.</p>
+          </div>
+        `;
+        subtotalEl.textContent = 'S/ 0.00';
+        totalEl.textContent = 'S/ 0.00';
+        return;
+      }
+
+      let subtotal = 0;
+      container.innerHTML = cart.map((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+
+        return `
+          <div class="py-3 flex items-center justify-between gap-3">
+            <img src="${item.image}" alt="${item.brand}" class="w-14 h-14 object-cover rounded-xl bg-gray-50 border p-1 shrink-0">
+            <div class="flex-grow min-w-0">
+              <h4 class="font-bold text-xs text-gray-900 truncate">${item.brand}</h4>
+              <p class="text-[11px] text-gray-600 truncate">${item.model}</p>
+              <div class="flex items-center gap-2 mt-1">
+                <span class="text-[10px] bg-gray-100 font-bold px-1.5 py-0.5 rounded text-gray-700">Talla: ${item.size}</span>
+                <span class="text-xs font-black text-red-600">S/ ${item.price.toFixed(2)}</span>
+              </div>
+            </div>
+            
+            <div class="flex flex-col items-end gap-1 shrink-0">
+              <div class="flex items-center border border-gray-200 rounded-lg overflow-hidden">
+                <button onclick="changeQuantity(${index}, -1)" class="w-6 h-6 bg-gray-50 text-gray-600 text-xs flex items-center justify-center hover:bg-gray-200">-</button>
+                <span class="w-7 text-center text-xs font-bold text-gray-800">${item.quantity}</span>
+                <button onclick="changeQuantity(${index}, 1)" class="w-6 h-6 bg-gray-50 text-gray-600 text-xs flex items-center justify-center hover:bg-gray-200">+</button>
+              </div>
+              <button onclick="removeFromCart(${index})" class="text-[10px] text-gray-600 hover:text-red-600 mt-0.5">
+                <i class="fa-regular fa-trash-can"></i> Quitar
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      subtotalEl.textContent = `S/ ${subtotal.toFixed(2)}`;
+      totalEl.textContent = `S/ ${subtotal.toFixed(2)}`;
+    }
+
+    function changeQuantity(index, delta) {
+      if (!cart[index]) return;
+      cart[index].quantity += delta;
+      if (cart[index].quantity <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function removeFromCart(index) {
+      cart.splice(index, 1);
+      updateCartUI();
+    }
+
+    /* -------------------------------------------------------------
+       INTEGRACIÓN WHATSAPP CHECKOUT (PEDIDO COMPLETO AL 967737405)
+       ------------------------------------------------------------- */
+    function orderViaWhatsApp() {
+      if (cart.length === 0) {
+        showToast("Tu bolsa está vacía. Selecciona un calzado primero.");
+        return;
+      }
+
+      let total = 0;
+      let text = `¡Hola! Deseo realizar el siguiente pedido en *Bata & Moda Steps*:%0A%0A`;
+      text += `*DETALLE DE MI PEDIDO:*%0A`;
+
+      cart.forEach((item, i) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        text += `• ${i + 1}. *${encodeURIComponent(item.brand)}* - ${encodeURIComponent(item.model)}%0A`;
+        text += `   - Talla: *${item.size}*%0A`;
+        text += `   - Cantidad: *${item.quantity}*%0A`;
+        text += `   - Subtotal: S/ ${itemTotal.toFixed(2)}%0A%0A`;
+      });
+
+      text += `*TOTAL A PAGAR:* S/ ${total.toFixed(2)}%0A`;
+      text += `*ENVÍO:* Gratis a todo el Perú%0A%0A`;
+      text += `¿Cuál es el siguiente paso para coordinar la entrega y el pago (Yape/Plin/Tarjeta)?`;
+
+      const waUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${text}`;
+      window.open(waUrl, '_blank');
+    }
+
+    function openCheckoutModal() {
+      if (cart.length === 0) {
+        showToast("Tu bolsa está vacía. Añade productos antes de pagar.");
+        return;
+      }
+      const totalAmount = cart.reduce((acc, item) => acc + (item.price * item.quantity), 0);
+      document.getElementById('modalCheckoutAmount').textContent = `S/ ${totalAmount.toFixed(2)}`;
+      
+      const cartOffcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('cartOffcanvas'));
+      if (cartOffcanvas) cartOffcanvas.hide();
+
+      const modal = new bootstrap.Modal(document.getElementById('checkoutModal'));
+      modal.show();
+    }
+
+    function finishPurchase(e) {
+      e.preventDefault();
+      const name = document.getElementById('chkName').value;
+      const phone = document.getElementById('chkPhone').value;
+      const address = document.getElementById('chkAddress').value;
+      const payment = document.getElementById('chkPayment').value;
+
+      let total = 0;
+      let text = `¡Hola! Acabo de registrar mi pedido en la web con los siguientes datos:%0A%0A`;
+      text += `*CLIENTE:* ${encodeURIComponent(name)}%0A`;
+      text += `*TELÉFONO:* ${encodeURIComponent(phone)}%0A`;
+      text += `*DIRECCIÓN:* ${encodeURIComponent(address)}%0A`;
+      text += `*MÉTODO DE PAGO:* ${encodeURIComponent(payment)}%0A%0A`;
+      text += `*PRODUCTOS:*%0A`;
+
+      cart.forEach((item, i) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        text += `${i + 1}. ${encodeURIComponent(item.brand)} (Talla: ${item.size}) x${item.quantity} = S/ ${itemTotal.toFixed(2)}%0A`;
+      });
+
+      text += `%0A*TOTAL:* S/ ${total.toFixed(2)}`;
+
+      const modal = bootstrap.Modal.getInstance(document.getElementById('checkoutModal'));
+      if (modal) modal.hide();
+      
+      cart = [];
+      updateCartUI();
+      showToast("¡Pedido registrado! Abriendo WhatsApp para confirmar...");
+
+      setTimeout(() => {
+        window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${text}`, '_blank');
+      }, 700);
+    }
+
+    /* Utilidades */
+    function filterByCategory(category) {
+      currentCategory = category;
+      document.querySelectorAll('.category-bubble').forEach(btn => {
+        if (btn.getAttribute('data-cat') === category) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      renderProducts();
+    }
+
+    function sortProducts() {
+      renderProducts();
+    }
+
+    function resetFilters() {
+      currentCategory = 'all';
+      searchQuery = '';
+      const inputDesk = document.getElementById('searchInput');
+      const inputMob = document.getElementById('searchInputMobile');
+      if (inputDesk) inputDesk.value = '';
+      if (inputMob) inputMob.value = '';
+      filterByCategory('all');
+    }
+
+    function toggleWishlist(button) {
+      const icon = button.querySelector('i');
+      if (icon.classList.contains('fa-regular')) {
+        icon.classList.remove('fa-regular');
+        icon.classList.add('fa-solid');
+        button.classList.add('text-red-600');
+        showToast("Guardado en tu lista de deseos");
+      } else {
+        icon.classList.remove('fa-solid');
+        icon.classList.add('fa-regular');
+        button.classList.remove('text-red-600');
+      }
+    }
+
+    function showToast(msg) {
+      document.getElementById('toastMessage').textContent = msg;
+      const toastEl = document.getElementById('appToast');
+      const toast = new bootstrap.Toast(toastEl, { delay: 2800 });
+      toast.show();
+    }
+
+    // Buscador interactivo
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+      searchQuery = e.target.value;
+      const mobInput = document.getElementById('searchInputMobile');
+      if (mobInput) mobInput.value = searchQuery;
+      renderProducts();
+    });
+
+    document.getElementById('searchInputMobile').addEventListener('input', function(e) {
+      searchQuery = e.target.value;
+      const deskInput = document.getElementById('searchInput');
+      if (deskInput) deskInput.value = searchQuery;
+      renderProducts();
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      updateCartUI();
+    });
+  </script>
+</body>
+</html>
